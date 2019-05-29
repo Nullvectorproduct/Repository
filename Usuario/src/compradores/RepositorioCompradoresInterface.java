@@ -1,13 +1,13 @@
 package compradores;
 
 public interface RepositorioCompradoresInterface {
-	void inserir(Comprador comprador);
+	public void inserir(Comprador comprador);
 
-	void remover(Comprador comprador);
+	public void remover(Comprador comprador);
 
-	Comprador procurar(String cpf);
+	public Comprador procurar(String cpf)  throws CompradorNaoEncontradoException;
 
-	void atualizar(Comprador comprador);
+	public void atualizar(Comprador comprador);
 
-	boolean existe(Comprador comprador);
+	public boolean existe(Comprador comprador);
 }

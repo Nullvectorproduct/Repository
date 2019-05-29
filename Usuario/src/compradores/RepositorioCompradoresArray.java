@@ -5,7 +5,7 @@ public class RepositorioCompradoresArray implements RepositorioCompradoresInterf
 	private int indice;
 
 	public RepositorioCompradoresArray() {
-		this.compradores = new Comprador[100];
+		this.compradores = new Comprador[200];
 		this.indice = 0;
 	}
 
@@ -20,18 +20,30 @@ public class RepositorioCompradoresArray implements RepositorioCompradoresInterf
 		return false;
 	}
 
-	public void inserir(Comprador comprador){
-		if (indice < 99) {
-		if (compradores[indice] == null) {
-			compradores[indice] = comprador;
-		} else {
-			indice++;
-			this.inserir(comprador);
-		}
+	public void inserir(Comprador comprador) {
+		if (indice < 199) {
+			if (compradores[indice] == null) {
+				compradores[indice] = comprador;
+			} else {
+				indice++;
+				this.inserir(comprador);
+			}
 		}
 	}
 
-	public void remover (Comprador comprador){
-		
+	public void remover(Comprador comprador) {
+
+	}
+
+	public Comprador procurar(String cpf) throws CompradorNaoEncontradoException {
+		for (int i = 0; i < 200; i++) {
+			if (this.compradores[i].getCPF().equals(cpf)) {
+				return compradores[i];
+			}
 		}
+		throw new CompradorNaoEncontradoException();
+	}
+	public void atualizar (Comprador comprador) {
+		
+	}
 }
