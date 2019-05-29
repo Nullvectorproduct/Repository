@@ -17,7 +17,7 @@ public abstract class Usuario {
 		this.dinheiro = dinheiro;
 		this.cpf = cpf;
 	}
-
+	//Metodos get e set para obter e definir os atributos da classe.
 	public String getNome() {
 		return this.nome;
 	}

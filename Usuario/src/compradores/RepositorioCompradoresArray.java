@@ -28,11 +28,24 @@ public class RepositorioCompradoresArray implements RepositorioCompradoresInterf
 				indice++;
 				this.inserir(comprador);
 			}
-		}
+		} // else{
+			// Comprador[] compradores2 = new Comprador[300];
+			// for (int k = 0; k < 200; k++) {
+			// compradores2[k] = compradores[k];
+			// }
+			// compradores= compradores2;
+			// }
 	}
 
 	public void remover(Comprador comprador) {
-
+		for (int i = 0; i < 200; i++) {
+			if (this.compradores[i].getCPF().equals(comprador.getCPF())) {
+				for (int n = 0; n < indice; n++) {
+					compradores[n] = compradores[n + 1];
+					compradores[n + 1] = null;
+				}
+			}
+		}
 	}
 
 	public Comprador procurar(String cpf) throws CompradorNaoEncontradoException {
@@ -43,7 +56,13 @@ public class RepositorioCompradoresArray implements RepositorioCompradoresInterf
 		}
 		throw new CompradorNaoEncontradoException();
 	}
-	public void atualizar (Comprador comprador) {
-		
+
+	public void atualizar(Comprador comprador) {
+		for (int i = 0; i < 200; i++) {
+			if (this.compradores[i].getCPF().equals(comprador.getCPF())) {
+				compradores[i] = new Comprador(comprador.getNome(), comprador.getEndereco(), comprador.getDinheiro(),
+						comprador.getCPF());
+			}
+		}
 	}
 }

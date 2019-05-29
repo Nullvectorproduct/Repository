@@ -1,5 +1,6 @@
 package compradores;
 
+//Interface para ser implementada nos repositórios Array e Lista.
 public interface RepositorioCompradoresInterface {
 	public void inserir(Comprador comprador);
 
