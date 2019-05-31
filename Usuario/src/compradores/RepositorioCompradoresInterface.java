@@ -2,13 +2,13 @@ package compradores;
 
 //Interface para ser implementada nos repositórios Array e Lista.
 public interface RepositorioCompradoresInterface {
-	public void inserir(Comprador comprador);
+	void inserir(Comprador comprador);
 
-	public void remover(Comprador comprador);
+	void remover(Comprador comprador) throws CompradorNaoEncontradoException;
 
-	public Comprador procurar(String cpf)  throws CompradorNaoEncontradoException;
+	Comprador procurar(String cpf)  throws CompradorNaoEncontradoException;
 
-	public void atualizar(Comprador comprador);
+	void atualizar(Comprador comprador) throws CompradorNaoEncontradoException;
 
-	public boolean existe(Comprador comprador);
+	boolean existe(Comprador comprador);
 }

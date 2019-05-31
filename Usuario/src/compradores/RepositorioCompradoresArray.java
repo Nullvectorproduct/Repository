@@ -10,7 +10,7 @@ public class RepositorioCompradoresArray implements RepositorioCompradoresInterf
 	}
 
 	public boolean existe(Comprador comprador) {
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 200; i++) {
 			if (this.compradores[i] != null) {
 				if (this.compradores[i].getCPF().equals(comprador.getCPF())) {
 					return true;
@@ -18,7 +18,7 @@ public class RepositorioCompradoresArray implements RepositorioCompradoresInterf
 			}
 		}
 		return false;
-	}
+	} 
 
 	public void inserir(Comprador comprador) {
 		if (indice < 199) {
@@ -37,7 +37,7 @@ public class RepositorioCompradoresArray implements RepositorioCompradoresInterf
 			// }
 	}
 
-	public void remover(Comprador comprador) {
+	public void remover(Comprador comprador) throws CompradorNaoEncontradoException {
 		for (int i = 0; i < 200; i++) {
 			if (this.compradores[i].getCPF().equals(comprador.getCPF())) {
 				for (int n = 0; n < indice; n++) {
@@ -46,6 +46,7 @@ public class RepositorioCompradoresArray implements RepositorioCompradoresInterf
 				}
 			}
 		}
+		throw new CompradorNaoEncontradoException();
 	}
 
 	public Comprador procurar(String cpf) throws CompradorNaoEncontradoException {
@@ -57,12 +58,12 @@ public class RepositorioCompradoresArray implements RepositorioCompradoresInterf
 		throw new CompradorNaoEncontradoException();
 	}
 
-	public void atualizar(Comprador comprador) {
+	public void atualizar(Comprador comprador) throws CompradorNaoEncontradoException {
 		for (int i = 0; i < 200; i++) {
 			if (this.compradores[i].getCPF().equals(comprador.getCPF())) {
-				compradores[i] = new Comprador(comprador.getNome(), comprador.getEndereco(), comprador.getDinheiro(),
-						comprador.getCPF());
+				this.compradores[i] = comprador;
 			}
 		}
+		throw new CompradorNaoEncontradoException();
 	}
 }
